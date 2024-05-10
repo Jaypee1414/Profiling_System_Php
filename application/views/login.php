@@ -23,7 +23,7 @@
 
 <style>
     body{
-      background-image: url('<?php echo base_url("assets/dist/img/background.jpg")?>');
+      background-image: url('<?php echo base_url("assets/dist/img/FC.jpg")?>');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -38,11 +38,12 @@
   </style>
   <body>
   <div class="login-box">
+
+    <!-- /.login-logo -->
+    <div class="login-box-body">
     <div class="login-logo">
       <a href="#"><b>Ferndale Colleges</b> EMS</a>
     </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
       <p class="login-box-msg">LOGIN FORM</p>
 
       <?php echo form_open('Home/login'); ?>
