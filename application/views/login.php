@@ -60,10 +60,12 @@
           <!-- /.col -->
           <div class="col-xs-4 pull-left">
             <button type="submit" class="btn btn-success btn-block btn-flat">Sign In</button>
+            <p class="">Don't have a account? Click</p>
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      </form>  
+      <a href="<?php echo base_url(); ?>Preprofiling">Pre-Register</a>         
     </div>
     <!-- /.login-box-body -->
   </div>

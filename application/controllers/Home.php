@@ -106,10 +106,26 @@ class Home extends CI_Controller {
         }
     }
 
+    function register()
+    {
+        $un=$this->input->post('txtusername');
+        $pw=$this->input->post('txtpassword');
+        $this->load->model('Home_model');
+        $check_login=$this->Home_model->logindata($un,$pw);
+    }
+
+
     public function logout()
     {
         $this->session->sess_destroy();
         redirect(base_url().'login');
     }
 
+
+    public function Preprofiling()
+    {
+        // $this->load->view('staff/header');
+        $this->load->view('Profiling');
+        // $this->load->view('staff/footer');
+    }
 }

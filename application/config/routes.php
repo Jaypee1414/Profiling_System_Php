@@ -103,3 +103,5 @@ $route['Manage-Credentials'] = 'Certificate/manage_credentials';
 $route['Download-Credentials/(:any)'] = 'Certificate/download_file_credentials/$1';
 $route['Delete-Credentials/(:num)'] = 'Certificate/delete_credentials/$1';
 
+
+$route['Preprofiling'] = 'Home/Preprofiling';

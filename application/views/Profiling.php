@@ -23,28 +23,49 @@
 
 <style>
     body{
-      background-color: aquamarine;
+      background-image: url('<?php echo base_url("assets/dist/img/FC.jpg")?>');
       background-size: cover;
       background-position: center;
-      height: 100vh;
+      background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+    .login-logo a{
+      color: black;
+      font-size: 4rem;
+    }
   </style>
   <body>
-  <div class="login-box ">
+  <div class="login-box">
+
+    <!-- /.login-logo -->
+    <div class="login-box-body">
     <div class="login-logo">
       <a href="#"><b>Ferndale Colleges</b> EMS</a>
     </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-      <p class="login-box-msg">LOGIN</p>
+      <p class="login-box-msg">REGISTER FORM</p>
 
-      <?php echo form_open('Home/login'); ?>
+      <?php echo form_open('Home/register'); ?>
+        <div class="form-group has-feedback">
+          <input type="text" name="txtempid" class="form-control" placeholder="Employee ID">
+          <span class="glyphicon ion-pound form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" name="txtfirstname" class="form-control" placeholder="First Name">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" name="txtlastname" class="form-control" placeholder="Last Name">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" name="txtphonenumber" class="form-control" placeholder="Phone Number">
+          <span class="glyphicon ion-ios-telephone form-control-feedback"></span>
+        </div>
         <div class="form-group has-feedback">
           <input type="text" name="txtusername" class="form-control" placeholder="Username/Staff Email">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <span class="glyphicon ion-at form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
           <input type="password" name="txtpassword" class="form-control" placeholder="Password">
@@ -55,10 +76,12 @@
           <!-- /.col -->
           <div class="col-xs-4 pull-left">
             <button type="submit" class="btn btn-success btn-block btn-flat">Sign In</button>
+            <p class="">Have already Account? Click</p>
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      </form>  
+      <a href="<?php echo base_url(); ?>login">Login</a>         
     </div>
     <!-- /.login-box-body -->
   </div>
