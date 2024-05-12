@@ -6,6 +6,7 @@ class Staff_model extends CI_Model {
 
     function insert_staff($data)
     {
+        
         $this->db->insert("staff_tbl",$data);
         return $this->db->insert_id();
     }
@@ -150,13 +151,6 @@ class Staff_model extends CI_Model {
         $this->db->update('staff_tbl',$data);
         $this->db->affected_rows();
     }
-
-    
-
-    
-    
-
-
 
 
 }

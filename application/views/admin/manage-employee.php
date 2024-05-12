@@ -62,7 +62,8 @@
                     foreach($content as $cnt): 
                   ?>
                       <tr>
-                        <td><input type="text"  name="txtid" placeholder="<?php echo $i; ?>" value="<?php $cnt['user_id'];?>" style="border: none; width: 25px;"></td>
+                        <td><input type="text"  name="txtcoount" placeholder="<?php echo $i; ?>" value="<?php echo $cnt['user_id'];?>" style="border: none; width: 25px;"></td>
+                        <input type="text"  name="txtid" placeholder="<?php echo $i; ?>" value="<?php echo $cnt['user_id'];?>" style="border: none; width: 25px;" hidden>
                         <td><input type="text" name="txtempid" value="<?php echo $cnt['EmployeeID']; ?>" style="border: none;"></td>
                         <td><input type="text" name="txtname" value="<?php echo $cnt['staff_name']; ?>" style="border: none;"></td>
                         <td><input type="text" name="txtmobile" value="<?php echo $cnt['mobile']; ?>" style="border: none;"></td>
