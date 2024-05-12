@@ -128,7 +128,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url(); ?>add-staff"><i class="fa fa-circle-o"></i> Approve Employee</a></li>
+            <li><a href="<?php echo base_url(); ?>approve-staff"><i class="fa fa-circle-o"></i> Approve Employee</a></li>
             <li><a href="<?php echo base_url(); ?>add-staff"><i class="fa fa-circle-o"></i> Add Employee</a></li>
             <li><a href="<?php echo base_url(); ?>manage-staff"><i class="fa fa-circle-o"></i> Manage Employee</a></li>
           </ul>

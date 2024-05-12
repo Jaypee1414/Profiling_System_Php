@@ -105,3 +105,6 @@ $route['Delete-Credentials/(:num)'] = 'Certificate/delete_credentials/$1';
 
 
 $route['Preprofiling'] = 'Home/Preprofiling';
+$route['approve-staff'] = 'staff/manage_register';
+$route['delete-employee/(:num)'] = 'staff/delete_employee/$1';
+// $route['approve-employee/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)'] = 'staff/approve_employee/$1/$2/$3/$4/$5/$6';

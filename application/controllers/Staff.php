@@ -29,6 +29,13 @@ class Staff extends CI_Controller {
         $this->load->view('admin/footer');
     }
 
+    public function manage_register()
+    {
+        $data['content']=$this->Staff_model->reg();
+        $this->load->view('admin/header');
+        $this->load->view('admin/manage-employee',$data);
+        $this->load->view('admin/footer');
+    }
 
     public function insert()
     {
@@ -214,6 +221,46 @@ class Staff extends CI_Controller {
             $this->session->set_flashdata('success', "Staff Deleted Succesfully"); 
         }else{
             $this->session->set_flashdata('error', "Sorry, Staff Delete Failed.");
+        }
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+
+
+    function delete_employee($id)
+    {
+        // $this->Home_model->delete_login_byID($id);
+
+    }
+
+
+    function approve_employee()
+    {
+        $id=$this->input->post('txtid');
+        $empid=$this->input->post('txtempid');
+        $staffname=$this->input->post('txtname');
+        $mobile=$this->input->post('txtname');
+        $email=$this->input->post('txtemail');
+        $password=$this->input->post('txtpassword');
+               
+        $login=$this->Home_model->insert_login(array('username'=>$email,'password'=>$password,'usertype'=>2)); 
+        if($login>0)
+        {
+            $data=$this->Staff_model->insert_staff(array('EmployeeID'=>$empid, 'id'=>$login,'staff_name'=>$staffname,'email'=>$email,'password'=>$password,'mobile'=>$mobile));
+            // $datas=$this->Staff_model->delete_employee($id);
+        }
+        if($data==true)
+        {
+            $datas=$this->Staff_model->delete_employee($id);
+
+            if($this->db->affected_rows() > 0)
+            {
+                $this->session->set_flashdata('success', "Approve new Employee Succesfully"); 
+            }else{
+                $this->session->set_flashdata('error', "Sorry, Staff Delete Failed.");
+            }
+        }else{
+            $this->session->set_flashdata('error', "Sorry, Approve New Staff Failed.");
         }
         redirect($_SERVER['HTTP_REFERER']);
     }

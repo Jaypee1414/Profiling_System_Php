@@ -8,6 +8,7 @@ class Home extends CI_Controller {
         
         parent::__construct();
         
+        $this->load->model('Staff_model'); 
         $this->load->model('Certificates_model'); 
     }
 
@@ -108,11 +109,44 @@ class Home extends CI_Controller {
 
     function register()
     {
-        $un=$this->input->post('txtusername');
-        $pw=$this->input->post('txtpassword');
-        $this->load->model('Home_model');
-        $check_login=$this->Home_model->logindata($un,$pw);
-    }
+        
+        $this->form_validation->set_rules('txtempid', 'Employee ID', 'required');
+        $this->form_validation->set_rules('txtfirstname', 'First Name', 'required');
+        $this->form_validation->set_rules('txtlastname', 'Last Name', 'required');
+        $this->form_validation->set_rules('txtusername', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('txtphonenumber', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
+        
+
+        $empID=$this->input->post('txtempid');
+        $firstname=$this->input->post('txtfirstname');
+        $lastname=$this->input->post('txtlastname');
+        $mobile=$this->input->post('txtphonenumber');
+        $email=$this->input->post('txtusername');
+        $password=$this->input->post('txtpassword');
+
+                
+
+
+        if($this->form_validation->run() !== false)
+        {
+
+        $data=$this->Staff_model->register(array('EmployeeID'=>$empID,'staff_name'=>$firstname.$lastname,'mobile'=>$mobile,'email'=>$email,'password'=>$password));
+    
+            
+        if($data==true)
+        {
+            
+            $this->session->set_flashdata('success', "New Staff Added Succesfully"); 
+        }else{
+            $this->session->set_flashdata('error', "Sorry, New Staff Adding Failed.");
+        }
+        redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            
+            $this->session->set_flashdata('error', "Sorry, New Staff Adding Failed.");
+            $this->load->view('Profiling');
+        }
+    }   
 
 
     public function logout()

@@ -38,7 +38,6 @@
   </style>
   <body>
   <div class="login-box">
-
     <!-- /.login-logo -->
     <div class="login-box-body">
     <div class="login-logo">
@@ -46,29 +45,52 @@
     </div>
       <p class="login-box-msg">REGISTER FORM</p>
 
-      <?php echo form_open('Home/register'); ?>
+      <?php echo validation_errors('<div class="col-md-12">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-check"></i> Failed!</h4>', '</div>
+          </div>'); ?>
+
+        <?php if($this->session->flashdata('success')): ?>
+          <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-check"></i> Success!</h4>
+                  <?php echo $this->session->flashdata('success'); ?>
+            </div>
+          </div>
+        <?php elseif($this->session->flashdata('error')):?>
+        <div class="col-md-12">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="icon fa fa-check"></i> Failed!</h4>
+                  <?php echo $this->session->flashdata('error'); ?>
+            </div>
+          </div>
+        <?php endif;?>
+      <?php echo form_open_multipart('Home/register');?>
         <div class="form-group has-feedback">
-          <input type="text" name="txtempid" class="form-control" placeholder="Employee ID">
+          <input type="text" name="txtempid" class="form-control" placeholder="Employee ID" required>
           <span class="glyphicon ion-pound form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="text" name="txtfirstname" class="form-control" placeholder="First Name">
+          <input type="text" name="txtfirstname" class="form-control" placeholder="First Name" required>
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="text" name="txtlastname" class="form-control" placeholder="Last Name">
+          <input type="text" name="txtlastname" class="form-control" placeholder="Last Name" required>
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="text" name="txtphonenumber" class="form-control" placeholder="Phone Number">
+          <input type="text" name="txtphonenumber" class="form-control" placeholder="Phone Number" required>
           <span class="glyphicon ion-ios-telephone form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="text" name="txtusername" class="form-control" placeholder="Username/Staff Email">
+          <input type="text" name="txtusername" class="form-control" placeholder="Username/Staff Email" required>
           <span class="glyphicon ion-at form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" name="txtpassword" class="form-control" placeholder="Password">
+          <input type="password" name="txtpassword" class="form-control" placeholder="Password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <?php echo $this->session->flashdata('login_error'); ?>
