@@ -247,7 +247,7 @@ class Staff extends CI_Controller {
         $id=$this->input->post('txtid');
         $empid=$this->input->post('txtempid');
         $staffname=$this->input->post('txtname');
-        $mobile=$this->input->post('txtname');
+        $mobile=$this->input->post('txtmobile');
         $email=$this->input->post('txtemail');
         $password=$this->input->post('txtpassword');
         
@@ -256,7 +256,7 @@ class Staff extends CI_Controller {
 
         if($login>0)
         {
-            $data=$this->Staff_model->insert_staff(array('EmployeeID'=>$empid, 'id'=>$login,'staff_name'=>$staffname,'email'=>$email,'password'=>$password,'mobile'=>$mobile));
+            $data=$this->Staff_model->insert_staff(array('EmployeeID'=>$empid, 'id'=>$login,'staff_name'=>$staffname,'gender'=>"male",'email'=>$email,'password'=>$password,'mobile'=>$mobile,'dob'=>0000-00-00,'doj'=>0000-00-00,'address'=>"address",'city'=>"city",'state'=>"state",'country'=>"country",'department_id'=>1,'pic'=>"",'added_by'=>""));
             
         }
 

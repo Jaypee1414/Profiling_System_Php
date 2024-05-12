@@ -53,7 +53,7 @@
               }
               ?></h3>
 
-              <p>Certificates</p>
+              <p>Credentials</p>
             </div>
             <div class="icon">
               <i class="ionicons ion-android-document"></i>
@@ -76,7 +76,7 @@
               }
               ?></h3>
 
-              <p>Credentials</p>
+              <p>Certificates</p>
             </div>
             <div class="icon">
               <i class="ionicons ion-android-list"></i>
